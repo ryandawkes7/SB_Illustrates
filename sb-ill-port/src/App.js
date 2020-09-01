@@ -2,29 +2,27 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter, Link} from 'react-router-dom';
 
+import Header from "./Components/Header/header";
+import Portfolio from "./Components/Portfolio/portfolio";
+import About from "./Components/About/about";
+import Contact from "./Components/Contact/contact";
+
 function App() {
   return (
       <BrowserRouter>
-          <div className="home-page-design">
-            <header className="header">
-                <h1>SB Illustrates</h1>
-                <div className="links">
-                    <div className="header-link">
-                        <Link to="#">About Me</Link>
-                    </div>
-                    <div className="vertical-divider"/>
-                    <div className="header-link">
-                        <Link to="#">My Work</Link>
-                    </div>
-                    <div className="vertical-divider"/>
-                    <div className="header-link">
-                        <Link to="#">Contact</Link>
-                    </div>
-                </div>
-            </header>
-          </div>
+          <Header />
+          <Portfolio />
+          <div className="page-divider" />
+          <About />
+          <div className="page-divider" />
+          <Contact />
+
       </BrowserRouter>
   );
+}
+
+function showTitle() {
+    document.getElementById("uni-title").style.display = "flex";
 }
 
 export default App;
