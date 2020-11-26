@@ -1,0 +1,64 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat, sans-serif;
+}
+
+html{
+  font-size: 16px;	/* Default font size in browser is 16px.*/
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body{
+  height: 100vh;
+}
+
+a{
+  text-decoration: none;
+  color: #2D3142;
+
+  font-size: 1rem;
+}
+
+h1{
+  font-size: 3rem;
+  font-weight: bold;
+
+  letter-spacing: 0.19em;
+  text-align: center;
+}
+
+h2{
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+h3{
+  font-size: 5rem;
+}
+
+p{
+  font-family: Courier;
+  font-size: 1.125rem;
+  line-height: 2rem;
+}
+
+.page-divider{
+  background-color: #C38FC9;
+  height: 6px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+  position: relative; top: 100px;
+}
+
+button {
+  outline: none; cursor: pointer;
+  transition: .2s ease; -webkit-transition: .2s ease;
+}
+
+.grid-layout {
+  display: grid; grid-template-areas: "header" "main" "footer";
+  grid-template-columns: 100vw; grid-template-rows: 10rem 1fr 25rem;
+  height: 100%;
+}
+/*https://coolors.co/fbdbff-2d3142-bdd2a6-657153-ca6680*/

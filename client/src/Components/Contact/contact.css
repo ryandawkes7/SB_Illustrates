@@ -1,0 +1,136 @@
+h6{
+    font-size: 0.875rem;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.contact-page-container {
+    position: relative; top: 100px;
+}
+
+/** Left Container */
+.contact-page-container {
+    display: flex; width: 100vw; min-height: 100vh;
+    justify-content: center; align-items: center;
+    background: #E5FFF5;
+}
+.contact-page-info-container {
+    width: 45%; height: 52rem; margin: 2rem auto;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+
+    border-radius: 10px; background: #D1FCEB;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.08), 0 6px 12px 0 rgba(0,0,0,0.07); -webkit-box-shadow: 0 3px 6px 0 rgba(0,0,0,0.08), 0 6px 12px 0 rgba(0,0,0,0.07);
+}
+.contact-page-inner-container {
+    display: flex; flex-direction: column; justify-content: space-between;
+    margin: 2rem 0;
+    gap: 3vh; padding: 2rem 5rem; border-radius: 50px; max-width: 24.5rem;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,50,0,0.1));
+}
+/*** Social Links */
+.social-links-container {
+    display: flex; justify-content: center; align-items: center;
+    width: 100%; gap: 2rem; padding: 1.5rem 0;
+}
+.social-links-container button {
+    display: flex; justify-content: center; align-items: center;
+    padding: 1rem; border-radius: 10px;
+    border: none; background: #69CBA5;
+
+    transition: background-color .3s ease,
+    padding-bottom .3s ease, padding-left .3s ease, padding-right .3s ease, padding-top .3s ease;
+    -webkit-transition: background-color .3s ease, padding-bottom .3s ease, padding-left .3s ease, padding-right .3s ease, padding-top .3s ease;
+
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2), 0 6px 12px 0 rgba(0,0,0,0.19); -webkit-box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2), 0 6px 12px 0 rgba(0,0,0,0.19);
+}
+.social-links-container button:hover {
+    background-color: #79DFB7;
+    padding: 1rem 2rem;
+}
+.social-links-container img{ width: 4vw; }
+/*** End of Social Links */
+
+/*** Etsy Button Section */
+.etsy-button-container {
+    display: flex; flex-direction: column; flex-wrap: wrap;
+    justify-content: center; align-items: center;
+    gap: 1rem;
+    width: 100%; padding: 1.5rem 0;
+}
+.etsy-button-container button {
+    padding: 1rem 2rem;
+    border: none; background: #F09CE9; border-radius: 10px;
+    transition: background-color .3s ease;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 3px 6px 0 rgba(0,0,0,0.19); -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 3px 6px 0 rgba(0,0,0,0.19);
+}
+.etsy-button-container button:hover {
+    background-color: #FAA7F3;
+}
+.etsy-button-container h6{
+    color: rgba(0,0,0,0.4); font-style: italic; font-size: 20px;
+}
+.etsy-button-container h4{
+    font-size: 36px; font-style: italic; color: white;
+}
+/*** End of Etsy Button Section */
+
+/*** Email Section */
+.email-container {
+    display: flex; justify-content: center; align-items: center; gap: 1rem;
+}
+.email-link-container {
+    display: inline; position: relative;
+    transition: color .3s ease;
+}
+.email-link-container:after {
+    content: ""; position: absolute;
+    right: 0; bottom: -10px; width: 0; height: 3px;
+    border-radius: 50px; background: #F09CE9;
+    transition: width .3s ease-out; -webkit-transition: width .3s ease-out;
+}
+.email-link-container:hover:after, .email-link-container:focus:after {
+    left: 0; right: auto; width: 100%;
+}
+.email-link-container:hover {
+    color: #B974B2
+}
+/*** End of Email Section */
+/** Left Container */
+
+/** Right Container */
+.contact-page-form-container {
+    display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between;
+    width: 80%; height: 100%; margin: 1rem 0;
+    color: #038C57;
+}
+.contact-page-form-container p, .contact-page-form-container h1 { text-align: right; }
+.contact-page-form {
+    display: flex; flex-direction: column; width: 100%;
+    margin: 3rem auto; gap: 0;
+}
+.contact-page-form label { margin-left: 0.5rem; }
+.contact-page-form input, .contact-page-form textarea {
+    padding: 1rem; margin: auto; border: none;
+    min-width: 80%; max-width: 100%; width: 90%; max-height: 10rem;
+    font-weight: 500; outline: none;
+    background: #EDC8EA; border-radius: 5px;
+    transition: background-color .3s ease;
+}
+.contact-page-form textarea {
+    min-height: 10rem; margin-bottom: 1rem;
+}
+.contact-page-form input:hover, .contact-page-form input:active, .contact-page-form input:focus,
+.contact-page-form textarea:hover, .contact-page-form textarea:active, .contact-page-form textarea:focus {
+    background-color: #F09CE9;
+}
+.contact-page-form button {
+    background: #038C57; border: none; padding: 0.75rem 2rem; border-radius: 10px;
+    width: fit-content; color: #E5FFF5;
+    margin-left: auto; margin-top: 1rem;
+    font-style: italic; font-size: 24px;
+    transition: background-color .3s ease; -webkit-transition: background-color .3s ease;
+}
+.contact-page-form button:hover { background-color: #03A06B; }
+
+/** End of Right Container */
