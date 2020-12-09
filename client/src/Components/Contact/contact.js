@@ -40,7 +40,7 @@ class Contact extends Component {
 
     render () {
 
-        if(window.innerWidth >= 1400 ) {
+        if(window.innerWidth > 1000 ) {
             return(
 
                 <div className="contact-page-container" id="contact">
@@ -128,7 +128,8 @@ class Contact extends Component {
                 </div>
 
             );
-        } else if(window.innerWidth < 500) {
+        }
+        else if(window.innerWidth < 500) {
             return(
                 <div className="contact-page-container">
 

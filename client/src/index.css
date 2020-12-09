@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: Montserrat, sans-serif;
+  max-width: 100vw;
 }
 
 html{
@@ -45,6 +46,7 @@ p{
   line-height: 2rem;
 }
 
+
 @media (max-width: 1920px) and (min-width: 1600px) {
   .page-divider {
     background-color: #C38FC9;
@@ -71,7 +73,8 @@ button {
 
 .grid-layout {
   display: grid; grid-template-areas: "header" "main" "footer";
-  grid-template-columns: 100vw; grid-template-rows: 10rem 1fr 25rem;
+  grid-template-columns: 100vw; grid-template-rows: 100px 1fr 100px;
   height: 100%;
 }
+
 /*https://coolors.co/fbdbff-2d3142-bdd2a6-657153-ca6680*/

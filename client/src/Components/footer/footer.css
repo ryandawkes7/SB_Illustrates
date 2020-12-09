@@ -1,0 +1,14 @@
+.footer-bar {
+    position: relative; top: 100px;
+    font-size: 14px; font-family: Montserrat, sans-serif;
+    display: flex; justify-content: center; align-items: center; height: 50px; width: 100vw;
+    background: #79DFB7; color: rgba(255,255,255,0.8); z-index: 99999;
+}
+.footer-bar a{
+    font-size: 14px; font-family: Montserrat, sans-serif;
+    display: flex; justify-content: center; align-items: center; margin-left: 0.4rem;
+    background: #79DFB7; color: rgba(255,255,255,0.8); z-index: 99999;
+}
+.footer-bar a:hover {
+    color: black; font-weight: 700;
+}

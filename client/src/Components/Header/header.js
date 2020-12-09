@@ -8,7 +8,7 @@ class header extends Component{
 
     render(){
 
-        if(window.innerWidth > 1400) {
+        if(window.innerWidth > 1000) {
             return (
                 <div className="header-design">
                     <Link to="/" className="header-image-container">

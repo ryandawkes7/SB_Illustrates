@@ -3,7 +3,7 @@ import React, {Component} from 'react'; import './productBox.css';
 class ProductBox extends Component {
     render () {
 
-        if(window.innerWidth >= 1600) {
+        if(window.innerWidth > 1000) {
             return (
                 <div className="product-box-container">
 
@@ -27,19 +27,23 @@ class ProductBox extends Component {
                         </div>
 
                         {/* Category */}
-                        <div className="pbd-category-container">
-                            <div className="pbd-category">
-                                <a href="#">
-                                    {this.props.category}
-                                </a>
+                        { window.innerWidth > 1300 &&
+                            <div className="pbd-category-container">
+                                <div className="pbd-category">
+                                    <a href="#">
+                                        { this.props.category }
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        }
 
                     </div>
 
                 </div>
             );
-        } else if(window.innerWidth < 600) {
+        }
+
+        else if(window.innerWidth < 600) {
             return (
                 <div className="product-box-container" onClick={this.props.toggle}>
 

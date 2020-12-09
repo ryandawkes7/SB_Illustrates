@@ -102,6 +102,113 @@
     }
 }
 
+@media (min-width: 1000px) and (max-width: 1599px) {
+    .portfolio-page-design {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 100px);
+        background: #FFDADA;
+        position: relative;
+        top: 100px;
+    }
+
+    .portfolio-desc {
+        display: flex;
+        flex-direction: column;
+        margin: 5rem;
+        width: 30%;
+        height: 100%;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    @media (min-width: 1000px) and (max-width: 1299px) {
+        .portfolio-desc h1 { font-size: 42px; }
+        .portfolio-desc p { font-size: 16px; }
+    }
+    .portfolio-desc p, .portfolio-desc h1 {
+        margin: 1rem 0; color: #A74343;
+    }
+
+    .portfolio-desc p {
+        text-align: left;
+    }
+
+    .portfolio-categories {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 90%;
+    }
+
+    .portfolio-grow-cont {
+        display: flex;
+        float: left;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15), 0 6px 12px 0 rgba(0, 0, 0, 0.14);
+    }
+
+    .portfolio-grow {
+        width: 45%;
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+        position: relative;
+        display: flex;
+    }
+
+    .portfolio-grow img {
+        position: relative;
+        right: 4rem;
+    }
+
+    .portfolio-grow:hover {
+        width: 100%;
+        transition: all .5s ease-in-out;
+    }
+
+    .portfolio-title-container {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.5);
+        width: 0;
+        left: 0;
+        opacity: 0;
+
+        transition: width .5s ease, opacity 1s ease;
+        -webkit-transition: width .5s ease, opacity 1s ease;
+    }
+
+    .portfolio-title-container h4 {
+        font-size: 38px;
+        color: #F1F1F1;
+        opacity: 100;
+        position: relative;
+        left: -18rem;
+        transition: opacity 1s ease, left .5s ease;
+        -webkit-transition: opacity 1s ease, left .7s ease;
+    }
+
+    .portfolio-grow:hover .portfolio-title-container {
+        right: 0;
+        width: 100%;
+        opacity: 100;
+    }
+
+    .portfolio-grow:hover .portfolio-title-container h4 {
+        opacity: 100%;
+        left: 0;
+    }
+}
+
 @media (min-width: 200px) and (max-width: 500px) {
 
     .portfolio-page-design {
@@ -153,12 +260,11 @@
 
     .university-image, .personal-image, .commissions-image { position: relative; }
     .university-image {
-        right: -100px; bottom: -130px;
+        left: 50px;
     }
     .personal-image {
-        right: -240px; bottom: -25px;
     }
     .commissions-image {
-        right: -80px; bottom: -120px;
+        top: 50px;
     }
 }

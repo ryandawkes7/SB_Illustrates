@@ -7,8 +7,9 @@ import Header from "./Components/Header/header";
 import Portfolio from "./Components/Portfolio/portfolio";
 import About from "./Components/About/about";
 import Contact from "./Components/Contact/contact";
-import PortfolioScreen from "./Components/portfolioScreen/portfolioScreen";
+import PortfolioScreen from "./Screen/portfolioScreen/portfolioScreen";
 import Landing from "./Screen/landing";
+import FooterBar from "./Components/footer/footer";
 
 function App() {
   return (
@@ -25,9 +26,15 @@ function App() {
                       <div>
                         <Route path="/portfolio" component={PortfolioScreen} />
                       </div>
+                      <div>
+                          <Route path="/footer" component={FooterBar}/>
+                      </div>
                   </main>
               </Switch>
+
+
           </div>
+
       </BrowserRouter>
   );
 }

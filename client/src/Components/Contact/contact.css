@@ -1,4 +1,4 @@
-@media (max-width: 1920px) and (min-width: 1600px) {
+@media (max-width: 1920px) and (min-width: 1000px) {
     h6 {
         font-size: 0.875rem;
         font-style: italic;
@@ -199,6 +199,12 @@
     .contact-page-form-container p, .contact-page-form-container h1 {
         text-align: right;
         margin-left: auto
+    }
+
+    @media (min-width: 1000px) and (max-width: 1299px) {
+        .cpf-title-container h1 { font-size: 42px; }
+        .cpf-title-container p { font-size: 16px; }
+        .cpf-input label { font-size: 14px; }
     }
 
     .contact-page-form {

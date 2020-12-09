@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './portfolioScreen.css';
-import ProductBox from "../ProductBox/productBox";
+import ProductBox from "../../Components/ProductBox/productBox";
 import { portfolioData } from "./portfolioData";
 import {AiFillCloseCircle} from "react-icons/all";
+import FooterBar from "../../Components/footer/footer";
 
 class PortfolioScreen extends Component {
 
@@ -27,7 +28,7 @@ class PortfolioScreen extends Component {
 
         const { selectedProduct, currentCategory, currentStyle } = this.state;
 
-        if(window.innerWidth >= 800)
+        if(window.innerWidth > 1000)
         {
             return (
                 <div>
@@ -35,6 +36,8 @@ class PortfolioScreen extends Component {
                     {/* Product Popup */ }
                     { selectedProduct !== null && (
                         <div className="product-popup-container">
+
+                            {/* Close */}
                             <button
                                 className="pp-close-button"
                                 onClick={ () => {
@@ -124,12 +127,7 @@ class PortfolioScreen extends Component {
                                 {/* Category Filter Section*/ }
                                 <div className="portfolio-filter-category">
 
-                                    {/* Title */ }
-                                    <div className="p-f-c-title-container">
-                                        <h4>CATEGORY</h4>
-                                    </div>
-
-                                    {/* Dropdown */ }
+                                    {/* Filters */ }
                                     <div className="p-f-c-options">
 
                                         <button onClick={ () => this.setState({
@@ -158,40 +156,6 @@ class PortfolioScreen extends Component {
 
                                     </div>
 
-                                </div>
-
-                                {/* Category Filter Section*/ }
-                                <div className="portfolio-filter-category">
-                                    <div className="p-f-c-title-container">
-                                        <h4>STYLE</h4>
-                                    </div>
-                                    <div className="p-f-c-options">
-
-                                        <button onClick={ () => this.setState({
-                                            currentCategory: "All"
-                                        }) }>
-                                            All
-                                        </button>
-
-                                        <button onClick={ () => this.setState({
-                                            currentCategory: "Commission"
-                                        }) }>
-                                            Commissions
-                                        </button>
-
-                                        <button onClick={ () => this.setState({
-                                            currentCategory: "Personal"
-                                        }) }>
-                                            Personal
-                                        </button>
-
-                                        <button onClick={ () => this.setState({
-                                            currentCategory: "University"
-                                        }) }>
-                                            University
-                                        </button>
-
-                                    </div>
                                 </div>
 
                             </div>
@@ -262,7 +226,7 @@ class PortfolioScreen extends Component {
                     </div>
                 </div>
             );
-        } else if (window.innerWidth < 800) {
+        } else if (window.innerWidth < 999) {
             return (
                 <div>
 
@@ -300,11 +264,6 @@ class PortfolioScreen extends Component {
                                         {/* Category Button */ }
                                         <div className="ppb-inner-container">
 
-                                            {/* Title */ }
-                                            <div className="ppb-title">
-                                                category:
-                                            </div>
-
                                             {/* Button */ }
                                             <button className="ppb-button">
                                                 { selectedProduct.category }
@@ -313,11 +272,6 @@ class PortfolioScreen extends Component {
 
                                         {/* Style Button */ }
                                         <div className="ppb-inner-container">
-
-                                            {/* Title */ }
-                                            <div className="ppb-title">
-                                                style:
-                                            </div>
 
                                             {/* Button */ }
                                             <button className="ppb-button">
@@ -328,19 +282,12 @@ class PortfolioScreen extends Component {
 
                                     </div>
 
-                                    {/* Description */ }
-                                    <div className="ppd-description">
-                                        <div className="ppdd-inner-container">
-                                            { selectedProduct.description }
-                                        </div>
-                                    </div>
-
-                                    {/* Purchase Button */ }
-                                    { selectedProduct.etsy !== null &&
-                                    <a href={ selectedProduct.etsy } className="ppd-purchase-button">
-                                        Purchase Here
-                                    </a>
-                                    }
+                                        {/* Purchase Button */ }
+                                        { selectedProduct.etsy !== null &&
+                                        <a href={ selectedProduct.etsy } className="ppd-purchase-button">
+                                            Purchase Here
+                                        </a>
+                                        }
 
                                 </div>
                             </div>
@@ -374,25 +321,6 @@ class PortfolioScreen extends Component {
                                     </select>
 
                                 </div>
-
-                                {/*/!* Style Filter *!/*/}
-                                {/*<div className="portfolio-filter-category">*/}
-
-                                {/*    /!* Title *!/*/}
-                                {/*    <div className="p-f-c-title-container">*/}
-                                {/*        Style*/}
-                                {/*    </div>*/}
-
-                                {/*    /!* Dropdown *!/*/}
-                                {/*    <select onChange={ (e) => this.setState({*/}
-                                {/*        currentStyle: e.target.value*/}
-                                {/*    })}>*/}
-                                {/*        <option>All</option>*/}
-                                {/*        <option>Digital</option>*/}
-                                {/*        <option>Pencil</option>*/}
-                                {/*    </select>*/}
-
-                                {/*</div>*/}
 
                             </div>
                         </div>
@@ -432,6 +360,7 @@ class PortfolioScreen extends Component {
                             </div>
                         </div>
                     </div>
+                    <FooterBar />
                 </div>
             );
         }
