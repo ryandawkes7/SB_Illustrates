@@ -6,9 +6,13 @@ class About extends Component {
         return (
             <div className="about-page-design" id="about">
                 <div className="about">
+
+                    {/* Image */}
                     <div className="about-img">
                         <img src={require('../images/art/Self-Portrait.png')}/>
                     </div>
+
+                    {/* Description */}
                     <div className="about-desc">
                         <h1>ABOUT ME</h1>
                         <p>My name is Sarah Brennan - I am a third year Illustration (BA Hons) student at UWE

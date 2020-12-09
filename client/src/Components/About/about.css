@@ -1,43 +1,84 @@
-.about-page-design{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+@media (min-width: 1600px) {
+    .about-page-design {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
 
-    width: 100%; height: 100%;
-    position: relative; top: 100px;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        top: 100px;
+    }
+
+    .about {
+        display: grid;
+        grid-template-columns: 33% 67%;
+
+        height: calc(100vh - 6.25rem);
+
+        max-width: 100%;
+        min-width: 100%;
+
+        background-color: #F4FFDD;
+
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .about-img {
+        margin-left: 20%;
+    }
+
+    .about-desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-desc h1 {
+        text-align: right;
+        width: 80%;
+    }
+
+    .about-desc p {
+        text-align: right;
+        width: 80%;
+    }
 }
 
-.about{
-    display: grid;
-    grid-template-columns: 33% 67%;
+@media (min-width: 200px) and (max-width: 500px) {
+    .about-page-design {
+        display: flex; justify-content: center; align-items: center;
+        height: calc(100vh - 180px); max-width: 100vw; min-height: 650px; position: relative; top: 66px;
+        background-color: #F4FFDD; overflow: hidden;
+    }
 
-    height: calc(100vh - 6.25rem);
+    .about {
+        display: flex; flex-direction: column-reverse; justify-content: center; align-items: center;
+        height: 100%; width: 100%;
+    }
 
-    max-width: 100%;
-    min-width: 100%;
+    .about-img {
+        display: flex; justify-content: center; align-items: center;
+        width: 289px; height: 289px;
+    }
+    .about-img img {
+        height: 100%; width: 100%;
+    }
 
-    background-color: #F4FFDD;
-
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.about-img {
-    margin-left: 20%;
-}
-
-.about-desc{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.about-desc h1{
-    text-align: right;
-    width: 80%;
-}
-.about-desc p{
-    text-align: right;
-    width: 80%;
+    .about-desc {
+        display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+        height: 30%; width: 85%; margin-bottom: 15%;
+    }
+    .about-desc h1, .about-desc p{
+        text-align: center; color: #749334;
+    }
+    .about-desc h1{
+        font-size: 36px;
+    }
+    .about-desc p {
+        font-size: 14px; line-height: 16px;
+    }
 }

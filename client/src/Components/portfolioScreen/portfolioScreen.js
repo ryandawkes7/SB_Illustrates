@@ -1,146 +1,440 @@
 import React, {Component} from 'react';
 import './portfolioScreen.css';
 import ProductBox from "../ProductBox/productBox";
-
-import BTTF from './assets/bttf.JPG'; import TTC from './assets/ttc.JPG';
-import {AiFillCloseCircle, AiOutlineCloseCircle, RiCloseFill} from "react-icons/all";
+import { portfolioData } from "./portfolioData";
+import {AiFillCloseCircle} from "react-icons/all";
 
 class PortfolioScreen extends Component {
 
     state = {
-        isPopupVisible: false
+        isPopupVisible: false,
+        selectedProduct: null,
+        currentCategory: "All",
+        currentStyle: "All"
     }
 
     togglePopup = () => {
         this.setState({
             isPopupVisible: !this.state.isPopupVisible
         })
-        console.log(this.state.isPopupVisible)
     }
 
     render () {
+        console.log(this.state.selectedProduct);
+        console.log("Style: ", this.state.currentStyle)
+        console.log("Category: ", this.state.currentCategory)
 
-        const { isPopupVisible } = this.state;
 
-        return (
-            <div>
-                {
-                    isPopupVisible && (
+        const { selectedProduct, currentCategory, currentStyle } = this.state;
+
+        if(window.innerWidth >= 800)
+        {
+            return (
+                <div>
+
+                    {/* Product Popup */ }
+                    { selectedProduct !== null && (
                         <div className="product-popup-container">
-                            <button className="pp-close-button" onClick={this.togglePopup}>
-                                <AiFillCloseCircle />
+                            <button
+                                className="pp-close-button"
+                                onClick={ () => {
+                                    this.setState({
+                                        selectedProduct: null
+                                    })
+                                } }
+                            >
+                                <AiFillCloseCircle/>
                             </button>
 
-                            {/* Image */}
+                            {/* Image */ }
                             <div className="pp-image-container">
-                                <img src={BTTF} alt="Artwork"/>
+                                <img src={ selectedProduct.image } alt="Artwork"/>
                             </div>
 
-                            {/* Description Box */}
+                            {/* Description Box */ }
                             <div className="pp-description-box">
                                 <div className="ppd-inner-container">
 
-                                    {/* Title */}
+                                    {/* Title */ }
                                     <div className="pp-title">
-                                        Artwork Title
+                                        { selectedProduct.title }
                                     </div>
 
-                                    {/* Category & Style */}
+                                    {/* Category & Style */ }
                                     <div className="pp-button">
 
-                                        {/* Category Button */}
+                                        {/* Category Button */ }
                                         <div className="ppb-inner-container">
 
-                                            {/* Title */}
+                                            {/* Title */ }
                                             <div className="ppb-title">
                                                 category:
                                             </div>
 
-                                            {/* Button */}
+                                            {/* Button */ }
                                             <button className="ppb-button">
-                                                Personal
+                                                { selectedProduct.category }
                                             </button>
                                         </div>
 
-                                        {/* Style Button */}
+                                        {/* Style Button */ }
                                         <div className="ppb-inner-container">
 
-                                            {/* Title */}
+                                            {/* Title */ }
                                             <div className="ppb-title">
                                                 style:
                                             </div>
 
-                                            {/* Button */}
+                                            {/* Button */ }
                                             <button className="ppb-button">
-                                                Digital
+                                                { selectedProduct.style }
                                             </button>
                                         </div>
 
 
                                     </div>
 
-                                    {/* Description */}
+                                    {/* Description */ }
                                     <div className="ppd-description">
                                         <div className="ppdd-inner-container">
-
+                                            { selectedProduct.description }
                                         </div>
                                     </div>
 
-                                    {/* Purchase Button */}
-                                    <button className="ppd-purchase-button">
+                                    {/* Purchase Button */ }
+                                    { selectedProduct.etsy !== null &&
+                                    <a href={ selectedProduct.etsy } className="ppd-purchase-button">
                                         Purchase Here
-                                    </button>
+                                    </a>
+                                    }
 
                                 </div>
                             </div>
 
                         </div>
-                    )
-                }
+                    ) }
 
-                <div className="portfolio-container">
+                    {/* Portfolio Grid */ }
+                    <div className="portfolio-container">
 
+                        {/* Filter Container Area */ }
+                        <div className="portfolio-filter-container">
+                            <div className="portfolio-inner-container">
 
-                    {/* Filter Container Area */}
-                    <div className="portfolio-filter-container">
-                        <div className="portfolio-inner-container">
+                                {/* Category Filter Section*/ }
+                                <div className="portfolio-filter-category">
 
-                            {/* Category Filter Section*/}
-                            <div className="portfolio-filter-category">
-                                <div className="p-f-c-title-container">
-                                    <h4>CATEGORY</h4>
+                                    {/* Title */ }
+                                    <div className="p-f-c-title-container">
+                                        <h4>CATEGORY</h4>
+                                    </div>
+
+                                    {/* Dropdown */ }
+                                    <div className="p-f-c-options">
+
+                                        <button onClick={ () => this.setState({
+                                            currentCategory: "All"
+                                        }) }>
+                                            All
+                                        </button>
+
+                                        <button onClick={ () => this.setState({
+                                            currentCategory: "Commission"
+                                        }) }>
+                                            Commissions
+                                        </button>
+
+                                        <button onClick={ () => this.setState({
+                                            currentCategory: "Personal"
+                                        }) }>
+                                            Personal
+                                        </button>
+
+                                        <button onClick={ () => this.setState({
+                                            currentCategory: "University"
+                                        }) }>
+                                            University
+                                        </button>
+
+                                    </div>
+
                                 </div>
-                                <div className="p-f-c-options">
-                                    <h5>All</h5>
-                                    <h5>Commissions</h5>
-                                    <h5>Personal</h5>
-                                    <h5>University</h5>
-                                </div>
-                            </div>
 
-                            {/* Sort By Filter Category */}
-                            <div className="portfolio-sort-category">
-                                <div className="p-f-c-title-container">
-                                    <h4>SORT BY</h4>
+                                {/* Category Filter Section*/ }
+                                <div className="portfolio-filter-category">
+                                    <div className="p-f-c-title-container">
+                                        <h4>STYLE</h4>
+                                    </div>
+                                    <div className="p-f-c-options">
+
+                                        <button onClick={ () => this.setState({
+                                            currentCategory: "All"
+                                        }) }>
+                                            All
+                                        </button>
+
+                                        <button onClick={ () => this.setState({
+                                            currentCategory: "Commission"
+                                        }) }>
+                                            Commissions
+                                        </button>
+
+                                        <button onClick={ () => this.setState({
+                                            currentCategory: "Personal"
+                                        }) }>
+                                            Personal
+                                        </button>
+
+                                        <button onClick={ () => this.setState({
+                                            currentCategory: "University"
+                                        }) }>
+                                            University
+                                        </button>
+
+                                    </div>
                                 </div>
-                                <div className="p-f-c-options">
-                                    <h5>Newest</h5>
-                                    <h5>Oldest</h5>
-                                </div>
+
                             </div>
                         </div>
-                    </div>
 
-                    <div className="portfolio-results-container">
-                        <div className="portfolio-results-inner-container">
-                            <ProductBox image={BTTF} title="Back to the Future" category="Commission" toggle={this.togglePopup} />
-                            <ProductBox image={TTC} title="Tyler The Creator" category="Personal" toggle={this.togglePopup}/>
-                            <ProductBox />
+                        {/* Results Section */ }
+                        <div className="portfolio-results-container">
+                            <div className="portfolio-results-inner-container">
+
+                                {/* All */ }
+                                { currentCategory === "All" && portfolioData.map(art => (
+                                    <ProductBox
+                                        image={ art.image }
+                                        title={ art.title }
+                                        category={ art.category }
+                                        toggle={ () => {
+                                            this.setState({
+                                                selectedProduct: art
+                                            })
+                                        } }
+                                    />
+                                )) }
+
+                                {/* Personal */ }
+                                { currentCategory === "Personal" && portfolioData.map(art => art.category === "Personal" && (
+                                    <ProductBox
+                                        image={ art.image }
+                                        title={ art.title }
+                                        category={ art.category }
+                                        toggle={ () => {
+                                            this.setState({
+                                                selectedProduct: art
+                                            })
+                                        } }
+                                    />
+                                )) }
+
+                                {/* Commissions */ }
+                                { currentCategory === "Commission" && portfolioData.map(art => art.category === "Commission" && (
+                                    <ProductBox
+                                        image={ art.image }
+                                        title={ art.title }
+                                        category={ art.category }
+                                        toggle={ () => {
+                                            this.setState({
+                                                selectedProduct: art
+                                            })
+                                        } }
+                                    />
+                                )) }
+
+                                {/* University */ }
+                                { currentCategory === "University" && portfolioData.map(art => art.category === "University" && (
+                                    <ProductBox
+                                        image={ art.image }
+                                        title={ art.title }
+                                        category={ art.category }
+                                        toggle={ () => {
+                                            this.setState({
+                                                selectedProduct: art
+                                            })
+                                        } }
+                                    />
+                                )) }
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        } else if (window.innerWidth < 800) {
+            return (
+                <div>
+
+                    {/* Product Popup */ }
+                    { selectedProduct !== null && (
+                        <div className="product-popup-container">
+                            <button
+                                className="pp-close-button"
+                                onClick={ () => {
+                                    this.setState({
+                                        selectedProduct: null
+                                    })
+                                } }
+                            >
+                                <AiFillCloseCircle/>
+                            </button>
+
+                            {/* Image */ }
+                            <div className="pp-image-container">
+                                <img src={ selectedProduct.image } alt="Artwork"/>
+                            </div>
+
+                            {/* Description Box */ }
+                            <div className="pp-description-box">
+                                <div className="ppd-inner-container">
+
+                                    {/* Title */ }
+                                    <div className="pp-title">
+                                        { selectedProduct.title }
+                                    </div>
+
+                                    {/* Category & Style */ }
+                                    <div className="pp-button">
+
+                                        {/* Category Button */ }
+                                        <div className="ppb-inner-container">
+
+                                            {/* Title */ }
+                                            <div className="ppb-title">
+                                                category:
+                                            </div>
+
+                                            {/* Button */ }
+                                            <button className="ppb-button">
+                                                { selectedProduct.category }
+                                            </button>
+                                        </div>
+
+                                        {/* Style Button */ }
+                                        <div className="ppb-inner-container">
+
+                                            {/* Title */ }
+                                            <div className="ppb-title">
+                                                style:
+                                            </div>
+
+                                            {/* Button */ }
+                                            <button className="ppb-button">
+                                                { selectedProduct.style }
+                                            </button>
+                                        </div>
+
+
+                                    </div>
+
+                                    {/* Description */ }
+                                    <div className="ppd-description">
+                                        <div className="ppdd-inner-container">
+                                            { selectedProduct.description }
+                                        </div>
+                                    </div>
+
+                                    {/* Purchase Button */ }
+                                    { selectedProduct.etsy !== null &&
+                                    <a href={ selectedProduct.etsy } className="ppd-purchase-button">
+                                        Purchase Here
+                                    </a>
+                                    }
+
+                                </div>
+                            </div>
+
+                        </div>
+                    ) }
+
+                    {/* Portfolio Grid */ }
+                    <div className="portfolio-container">
+
+                        {/* Filter Container Area */ }
+                        <div className="portfolio-filter-container">
+                            <div className="portfolio-inner-container">
+
+                                {/* Category Filter */ }
+                                <div className="portfolio-filter-category">
+
+                                    {/* Title */ }
+                                    <div className="p-f-c-title-container">
+                                        Category
+                                    </div>
+
+                                    {/* Dropdown */}
+                                    <select onChange={ (e) => this.setState({
+                                        currentCategory: e.target.value
+                                    })}>
+                                        <option>All</option>
+                                        <option>Commission</option>
+                                        <option>Personal</option>
+                                        <option>University</option>
+                                    </select>
+
+                                </div>
+
+                                {/*/!* Style Filter *!/*/}
+                                {/*<div className="portfolio-filter-category">*/}
+
+                                {/*    /!* Title *!/*/}
+                                {/*    <div className="p-f-c-title-container">*/}
+                                {/*        Style*/}
+                                {/*    </div>*/}
+
+                                {/*    /!* Dropdown *!/*/}
+                                {/*    <select onChange={ (e) => this.setState({*/}
+                                {/*        currentStyle: e.target.value*/}
+                                {/*    })}>*/}
+                                {/*        <option>All</option>*/}
+                                {/*        <option>Digital</option>*/}
+                                {/*        <option>Pencil</option>*/}
+                                {/*    </select>*/}
+
+                                {/*</div>*/}
+
+                            </div>
+                        </div>
+
+                        {/* Results Section */ }
+                        <div className="portfolio-results-container">
+                            <div className="portfolio-results-inner-container">
+
+                                {/* Test */ }
+                                { currentCategory && portfolioData.map(art => art.category === currentCategory && (
+                                    <ProductBox
+                                        image={ art.image }
+                                        title={ art.title }
+                                        category={ art.category }
+                                        toggle={ () => {
+                                            this.setState({
+                                                selectedProduct: art
+                                            })
+                                        } }
+                                    />
+                                )) }
+
+                                {/* All */}
+                                { currentCategory === "All" && portfolioData.map(art => (
+                                    <ProductBox
+                                        image={ art.image }
+                                        title={ art.title }
+                                        category={ art.category }
+                                        toggle={ () => {
+                                            this.setState({
+                                                selectedProduct: art
+                                            })
+                                        } }
+                                    />
+                                )) }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
     }
 }
 
